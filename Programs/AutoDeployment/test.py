@@ -9,7 +9,7 @@
 @CreatedTime: 2023/2/21 14:34
 """
 
-from Src.Deployment.EnvDeployment import EnvDeployment
+from Src.Deployment.Deployments import Deploy
 from loguru import logger
 from Src.Utils.Public import PublicTools
 import os
@@ -26,8 +26,10 @@ if __name__ == '__main__':
     else:
         os.mkdir(os.path.join(public_tools.project_path(), 'logs'))
         logger.add(os.path.join(public_tools.project_path(), 'logs/text.log'), rotation='5MB', encoding='utf8')
-    env_deployment = EnvDeployment()
+    deploy = Deploy()
     # java
-    env_deployment.deploy_java()
+    # deploy.java_()
+    # mysql
+    deploy.mysql_()
 
 

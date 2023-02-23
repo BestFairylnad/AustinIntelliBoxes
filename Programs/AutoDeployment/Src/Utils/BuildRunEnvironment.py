@@ -1,6 +1,6 @@
 # coding: utf8
 """ 
-@File: BuildEnvironmentTools.py
+@File: BuildRunEnvironmentTools.py
 @Editor: PyCharm
 @Author: Alice(From Chengdu.China)
 @HomePage: https://github.com/AliceEngineerPro
@@ -21,7 +21,7 @@ import tarfile
 import shutil
 
 
-class BuildEnvironmentTools:
+class BuildRunEnvironmentTools:
     """Building Environment tool class"""
 
     def __init__(self):
@@ -140,6 +140,33 @@ class BuildEnvironmentTools:
             file_mysql_zip = zipfile.ZipFile(path_package)
             for zip_file in tqdm(file_mysql_zip.namelist(), desc='Unzip mysql package...'):
                 file_mysql_zip.extract(member=zip_file, path=path_install)
+            logger.success('Install MySQL package successfully.')
+            MYSQL_HOME = os.path.join(path_install, 'bin')
+            if self.options_configuration.get_yaml().get('RunEnvironment') is not None:
+                if self.options_configuration.get_yaml().get('RunEnvironment').get('win') is not None:
+                    config: dict = self.options_configuration.get_yaml()
+                    win_config: dict = config.get('RunEnvironment')['win']
+                    win_config.update(mysql=os.path.join(MYSQL_HOME, 'mysql.exe'))
+                    config.get('RunEnvironment')['win'] = win_config
+                    self.options_configuration.write_yaml(yaml_config=config, mode='w')
+                else:
+                    config: dict = self.options_configuration.get_yaml()
+                    win_config: dict = config.get('RunEnvironment')
+                    win_config.update(win={'mysql': os.path.join(MYSQL_HOME, 'mysql.exe')})
+                    config['RunEnvironment'] = win_config
+                    print(config)
+            else:
+                config_dict = {
+                    'RunEnvironment': {
+                        'win': {
+                            'mysql': os.path.join(MYSQL_HOME, 'mysql.exe')
+                        }
+                    }
+                }
+                self.options_configuration.write_yaml(yaml_config=config_dict, mode='a+')
         except Exception as error:
             logger.error('{}'.format(error))
             logger.error('Failed to install MySQL')
+            
+    def deploy_mysql_unix(self, path_package, path_install):
+        pass
