@@ -1,0 +1,24 @@
+BuildEnvironments:
+  unix:
+    InstallPath:
+      java: /home/alice/data/workspace/env/java
+      mysql: null
+      nacos: null
+    PackagePath:
+      java: /home/alice/data/workspace/package/jdk-8u202-linux-x64.tar.gz
+      mysql: null
+      nacos: null
+  win:
+    InstallPath:
+      java: D:\develops\WorkSpace\runnet\environment\java
+      mysql: D:\develops\WorkSpace\runnet\environment\mysql
+      nacos: null
+    PackagePath:
+      java: D:\develops\WorkSpace\runnet\temp\Java1.8.202.zip
+      mysql: D:\develops\WorkSpace\runnet\temp\MySQL5.7.32.zip
+      nacos: null
+RunEnvironment:
+  unix:
+    java: /home/alice/data/workspace/env/java/jdk1.8.0_202/bin/java
+  win:
+    java: D:\develops\WorkSpace\runnet\environment\java\jdk\bin\java.exe

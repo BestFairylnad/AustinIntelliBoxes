@@ -1,6 +1,8 @@
-.idea
+.idea/
 *.iml
 out
 gen
 *.log
 py[cod]
+__pycache__/
+
