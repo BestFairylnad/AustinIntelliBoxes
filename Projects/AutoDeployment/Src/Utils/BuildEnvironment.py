@@ -136,6 +136,12 @@ class BuildEnvironmentTools:
             return 0
 
     def deploy_mysql_win(self, path_package, path_install):
+        """
+        win: deploy mysql
+        :param path_package: mysql package path
+        :param path_install: mysql install path
+        :return: 
+        """
         try:
             file_mysql_zip = zipfile.ZipFile(path_package)
             for zip_file in tqdm(file_mysql_zip.namelist(), desc='Unzip mysql package...'):
@@ -143,3 +149,5 @@ class BuildEnvironmentTools:
         except Exception as error:
             logger.error('{}'.format(error))
             logger.error('Failed to install MySQL')
+            
+
