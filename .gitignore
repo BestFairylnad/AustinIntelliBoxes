@@ -1,6 +1,12 @@
-.idea
+.idea/
 *.iml
 out
 gen
 *.log
-py[cod]
+*.py[cod]
+__pycache__/
+
+.venv/
+build/
+dist/
+*.spec
