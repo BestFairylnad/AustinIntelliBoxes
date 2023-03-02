@@ -9,6 +9,7 @@ loguru = "*"
 
 [dev-packages]
 pyinstaller = "*"
+cython = "*"
 
 [requires]
 python_version = "3.9"
