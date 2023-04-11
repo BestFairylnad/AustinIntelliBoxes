@@ -69,7 +69,8 @@ def main():
         os.makedirs(output)
     statistics_ip(nginx_log_file_path='data/nginx.log', output_file_path=output)
     statistics_tokens(tokens_log_file_path='data/stdout.log')
+    return True
 
 
 if __name__ == '__main__':
-    main()
+    print(main())
