@@ -9,8 +9,10 @@
 """
 
 import sys
+import warnings
 
 sys.dont_write_bytecode = True
+warnings.filterwarnings('ignore')
 
 from collections import Counter
 import pandas
@@ -27,7 +29,7 @@ def statistics_ip(nginx_log_file_path, output_file_path=''):
         with open(file=nginx_log_file_path, mode='r', encoding='utf-8') as nginx_logs:
             for line in tqdm(nginx_logs.readlines()):
                 ip = line.split(' ')[0]
-                if not ip.startswith('11.') or ip == '11.1.1.1':
+                if not ip.startswith('11.') or ip == '11.1.1.1' or ip == '127.0.0.1':
                     continue
                 ip_list.append(ip)
         nginx_logs.close()
@@ -45,7 +47,7 @@ def statistics_ip(nginx_log_file_path, output_file_path=''):
 def statistics_tokens(tokens_log_file_path):
     init_tokens_number = 0
     try:
-        with open(file=tokens_log_file_path, mode='r', encoding='utf-8') as tokens_logs:
+        with open(file=tokens_log_file_path, mode='r', encoding='gbk') as tokens_logs:
             for line in tqdm(tokens_logs.readlines()):
                 line: str
                 if '传输完毕' not in line:
@@ -68,7 +70,7 @@ def main():
     if not os.path.exists(output):
         os.makedirs(output)
     statistics_ip(nginx_log_file_path='data/nginx.log', output_file_path=output)
-    statistics_tokens(tokens_log_file_path='data/stdout.log')
+    statistics_tokens(tokens_log_file_path='data/gpt.log')
     return True
 
 
