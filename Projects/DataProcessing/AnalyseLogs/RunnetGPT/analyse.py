@@ -69,8 +69,8 @@ def main():
     output = 'output'
     if not os.path.exists(output):
         os.makedirs(output)
-    statistics_ip(nginx_log_file_path='data/nginx.log', output_file_path=output)
-    statistics_tokens(tokens_log_file_path='data/gpt.log')
+    statistics_ip(nginx_log_file_path='data/Nginx/20230410/access.log', output_file_path=output)
+    statistics_tokens(tokens_log_file_path='data/ChatGPT/20230408/stdout.log')
     return True
 
 

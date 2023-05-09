@@ -4,12 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+pandas = "*"
 tqdm = "*"
+loguru = "*"
 
 [dev-packages]
-pandas = "*"
-openpyxl = "*"
-loguru = "*"
 
 [requires]
 python_version = "3.9"
