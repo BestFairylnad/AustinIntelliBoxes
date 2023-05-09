@@ -26,7 +26,7 @@ import re
 def statistics_ip(nginx_log_file_path, output_file_path=''):
     ip_list = []
     try:
-        with open(file=nginx_log_file_path, mode='r', encoding='utf-8') as nginx_logs:
+        with open(file=nginx_log_file_path, mode='r', encoding='utf8') as nginx_logs:
             for line in tqdm(nginx_logs.readlines()):
                 ip = line.split(' ')[0]
                 if not ip.startswith('11.') or ip == '11.1.1.1' or ip == '127.0.0.1':
@@ -47,7 +47,7 @@ def statistics_ip(nginx_log_file_path, output_file_path=''):
 def statistics_tokens(tokens_log_file_path):
     init_tokens_number = 0
     try:
-        with open(file=tokens_log_file_path, mode='r', encoding='gbk') as tokens_logs:
+        with open(file=tokens_log_file_path, mode='r', encoding='utf8') as tokens_logs:
             for line in tqdm(tokens_logs.readlines()):
                 line: str
                 if '传输完毕' not in line:

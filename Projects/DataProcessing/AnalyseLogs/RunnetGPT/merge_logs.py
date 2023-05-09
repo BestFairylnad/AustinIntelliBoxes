@@ -36,7 +36,7 @@ def merge(folder_path: str, output_path: str, extension: str = None, file_coding
     else:
         folder_path_glob = '{}{}**{}{}'.format(folder_path, separate, separate, extension)
     glob_file_name = glob(folder_path_glob, recursive=True)
-    with open(output_path, 'w', encoding=file_coding) as output_file:
+    with open(output_path, 'w', encoding='utf8') as output_file:
         for file_path in glob_file_name:
             print(file_path)
             with open(file_path, 'r', encoding=file_coding) as file:
@@ -54,7 +54,7 @@ def main():
     )
     # nginx
     merge(
-        folder_path=r'E:\Projects\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\nginx',
+        folder_path=r'E:\Projects\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\Nginx',
         output_path=r'E:\Projects\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\nginx.log',
         extension='log'
     )
