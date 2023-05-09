@@ -36,11 +36,10 @@ def merge(folder_path: str, output_path: str, extension: str = None, file_coding
     else:
         folder_path_glob = '{}{}**{}{}'.format(folder_path, separate, separate, extension)
     glob_file_name = glob(folder_path_glob, recursive=True)
-    with open(output_path, 'w', encoding=file_coding) as output_file:
+    with open(output_path, 'w', encoding='utf8') as output_file:
         for file_path in glob_file_name:
             print(file_path)
             with open(file_path, 'r', encoding=file_coding) as file:
-                print(file.read())
                 output_file.write(file.read())
     return ...
 
@@ -48,15 +47,15 @@ def merge(folder_path: str, output_path: str, extension: str = None, file_coding
 def main():
     # gpt
     merge(
-        folder_path=r'D:\Developments\Github\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\ChatGPT',
-        output_path=r'D:\Developments\Github\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\ChatGPT\gpt.log',
+        folder_path=r'E:\Projects\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\ChatGPT',
+        output_path=r'E:\Projects\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\gpt.log',
         extension='log',
         file_coding='gbk'
     )
-    # Nginx
+    # nginx
     merge(
-        folder_path=r'D:\Developments\Github\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\Nginx',
-        output_path=r'D:\Developments\Github\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\Nginx\nginx.log',
+        folder_path=r'E:\Projects\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\Nginx',
+        output_path=r'E:\Projects\AceProfessional\AceRepositories\Projects\DataProcessing\AnalyseLogs\RunnetGPT\data\nginx.log',
         extension='log'
     )
     pass
