@@ -1,0 +1,37 @@
+#- name: Install Nginx (apt)
+#  tags: nginx
+#  apt:
+#    name: nginx
+#    state: latest
+
+#- name: Start Nginx, Boot Startup Nginx
+#  tags: nginx
+#  service:
+#    name: nginx
+#    state: started
+#    enabled: yes
+
+- name: Create Files
+  tags: create_files
+  file:
+    path: /tmp/{{ item }}
+    state: touch
+  with_items:
+    - 1.txt
+    - 2.txt
+
+- name: Copy Files
+  tags: copy_files
+  copy:
+    src: "{{ item }}"
+    dest: /tmp
+  with_fileglob:
+    - /home/ace/tmp/*.html
+    - /home/ace/tmp/*.txt
+
+- name: Write Nginx Config
+  tags: write_nginx_config
+  template:
+    src: test_nginx.j2
+    dest: /etc/nginx/conf.d/nginx.conf
+

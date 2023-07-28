@@ -1,0 +1,15 @@
+- name: web
+  hosts: testserver
+  gather_facts: false
+  roles:
+    - nginx
+    - php
+  tags: web
+
+- name: db
+  hosts: testdbserver
+  gather_facts: false
+  roles:
+    - mysql
+  tags: db
+

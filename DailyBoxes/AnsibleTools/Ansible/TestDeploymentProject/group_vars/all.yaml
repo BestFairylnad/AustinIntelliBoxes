@@ -1,0 +1,2 @@
+nginx_http_port: 88
+nginx_server_name: example
