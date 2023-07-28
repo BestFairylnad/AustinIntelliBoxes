@@ -5,11 +5,11 @@ name = "pypi"
 
 [packages]
 tqdm = "*"
+pandas = "*"
+loguru = "*"
+openpyxl = "*"
 
 [dev-packages]
-pandas = "*"
-openpyxl = "*"
-loguru = "*"
 
 [requires]
 python_version = "3.9"
