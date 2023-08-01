@@ -1,0 +1,34 @@
+# File: calico.yaml
+# Editor: PyCharm
+# Author: Ace (From Chengdu.China)
+# HomePage: https://github.com/AceProfessional
+# OS: Windows 11 Professional Workstation 22H2
+# CreatedTime: 2023-08-01
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: install-cni
+  namespace: kube-system
+  labels:
+    tier: node
+    node-role.kubernetes.io/master: ""
+spec:
+  hostNetwork: true
+  containers:
+    - name: calico-node
+      image: calico/node:v3.20.0
+      env:
+        - name: IP_AUTODETECTION_METHOD
+          value: "interface=ens160"
+        - name: CALICO_NETWORKING_BACKEND
+          value: "bird"
+        - name: FELIX_IGNORELOOSERPF
+          value: "true"
+      volumeMounts:
+        - name: var-log
+          mountPath: /var/log/calico
+  volumes:
+    - name: var-log
+      hostPath:
+        path: /var/log/calico
