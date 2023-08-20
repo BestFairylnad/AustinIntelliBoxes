@@ -25,7 +25,7 @@ class PasswdRules:
         初始化
         :param count: 密码长度
         """
-        self.count = count
+        self.__count = count
 
     def __get_common_char(self) -> str:
         """
@@ -42,7 +42,7 @@ class PasswdRules:
             return count, random.choices('!@$%^&*()_+~', k=count)
 
         special_char_count, special_char = get_special_char()
-        common_chat = random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', k=(self.count - special_char_count))
+        common_chat = random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', k=(self.__count - special_char_count))
         result = []
         result.extend(special_char + common_chat)
         random.shuffle(result)

@@ -28,7 +28,8 @@ class DownloadFiles:
         """
         self.__url = url
         if url.find('/') == -1:
-            sys.exit()
+            print('url错误')
+            sys.exit(1)
         else:
             self.__file_name = url.split('/')[-1]
 
@@ -46,5 +47,7 @@ class DownloadFiles:
             
             
 if __name__ == '__main__':
-    instantiation_download_files = DownloadFiles(url='https://www.python.org/ftp/python/3.9.13/python-3.9.13-amd64.exe')
+    # url = 'https://www.python.org/ftp/python/3.9.13/python-3.9.13-amd64.exe'
+    url = '1'
+    instantiation_download_files = DownloadFiles(url=url)
     instantiation_download_files.download()
