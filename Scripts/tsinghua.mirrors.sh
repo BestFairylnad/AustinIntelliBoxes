@@ -1,9 +1,3 @@
-#########################################################################
-# File Name: tsinghua.mirrors.sh
-# Author: Alice
-# mail: alice.engineer@foxmail.com
-# Created Time: Sun 12 Sep 2021 12:05:36 AM EDT
-#########################################################################
 #!/bin/bash
 
 echo 'Update Tsinghua.mirrors'
@@ -14,3 +8,4 @@ echo 'Done!'
 echo 'update yum'
 yum update -y
 echo 'Done!'''
+
