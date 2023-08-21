@@ -1,6 +1,6 @@
 # coding: utf8
 """ 
-@ File: downloadsfile.py
+@ File: downloadfiles.py
 @ Editor: PyCharm
 @ Author: Ace (From Chengdu.China)
 @ HomePage: https://github.com/AceProfessional
@@ -41,11 +41,11 @@ class DownloadFiles:
                 if file_data:
                     files.write(file_data)
             files.close()
-            
+
     def download(self):
         return self.__downloadfiles()
-            
-            
+
+
 if __name__ == '__main__':
     # url = 'https://www.python.org/ftp/python/3.9.13/python-3.9.13-amd64.exe'
     url = '1'
