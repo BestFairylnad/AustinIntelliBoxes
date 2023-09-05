@@ -8,4 +8,3 @@ echo 'Done!'
 echo 'update yum'
 yum update -y
 echo 'Done!'''
-
