@@ -1,7 +1,4 @@
 .idea/
-*.iml
-out
-gen
 *.log
 *.py[cod]
 __pycache__/
@@ -14,3 +11,4 @@ dist/
 *.zip
 *.exe
 *-ca
+.ipynb_checkpoints
