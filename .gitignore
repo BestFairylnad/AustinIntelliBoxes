@@ -10,5 +10,5 @@ dist/
 *.c
 *.zip
 *.exe
-*-ca
+#*-ca
 .ipynb_checkpoints
