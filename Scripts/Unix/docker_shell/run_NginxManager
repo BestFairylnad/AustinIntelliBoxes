@@ -1,0 +1,15 @@
+#!/bin/bash
+# @File: run_NginxManager
+# @Editor: PyCharm
+# @Author: Austin (From Chengdu.China)
+# @HomePage: https://github.com/AustinFairyland
+# @OperatingSystem: Windows 11 Professional Workstation 23H2 Canary Channel
+# @CreatedTime: 2023-09-26
+
+mkdir -p /data/app_data/docker/volumes/NginxManager
+docker run -t --name NginxManager -v /data/app_data/docker/volumes/NginxManager/data:/data -v /data/app_data/docker/volumes/NginxManager/letsencrypt:/etc/letsencrypt --restart always -p 50080:80 -p 50081:81 -p 50443:443 jc21/nginx-proxy-manager
+
+# admin@example.com ->> admin@local.eg
+# changeme ->> Austin.0112
+
+# curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh -o nezha.sh && chmod +x nezha.sh && sudo ./nezha.sh install_agent mapping.fairy.host 64301 BqI0zPiKAjdj1p4Nsv

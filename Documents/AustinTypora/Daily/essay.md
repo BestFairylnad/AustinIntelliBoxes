@@ -29,4 +29,11 @@ conda 清理缓存
 conda clean --all -y
 ```
 
+npm/yarn/cnpm/pnpm 清理缓存
+
+```bash
+yarn cache clean
+npm cache clean -f
+```
+
 
