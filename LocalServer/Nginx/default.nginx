@@ -1,12 +1,12 @@
 server {
     listen 80;
     server_name mapping.fairy.host;
-    return http://$host:88$request_uri;
+    return https://$host:443$request_uri;
 }
 
 server {
     listen 443 ssl;
-    listen [::]:443 ssl;
+    # listen [::]:443 ssl;
     server_name mapping.fairy.host;
     ssl_certificate /etc/pki/tls/certs/mapping.fairy.host_bundle.crt;
     ssl_certificate_key /etc/pki/tls/private/mapping.fairy.host.key;
@@ -14,7 +14,9 @@ server {
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_prefer_server_ciphers on;
-    return https://$host:1443$request_uri;
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
 }
 
 
