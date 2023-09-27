@@ -6,7 +6,7 @@ server {
 
 server {
     listen 1443 ssl;
-    listen [::]:1443 ssl;
+    # listen [::]:1443 ssl;
     ssl on;
     server_name mapping.fairy.host;
     ssl_certificate /etc/pki/tls/certs/mapping.fairy.host_bundle.crt;
