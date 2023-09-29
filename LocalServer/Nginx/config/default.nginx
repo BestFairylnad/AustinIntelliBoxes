@@ -1,14 +1,21 @@
 server {
+    listen 80;
     listen 88;
-    server_name mapping.fairy.host;
-    return https://$host:1443$request_uri;
+    # listen [::]:80;
+    # listen [::]:88;
+    server_name fairy.host mapping.fairy.host;
+    return https://$host:443$request_uri;
 }
 
 server {
-    listen 1443 ssl;
-    listen [::]:1443 ssl;
+    listen 443 ssl;
+    listen 4433 ssl;
+    # listen [::]:443 ssl;
+    # listen [::]:4433 ssl;
+    server_name fairy.host mapping.fairy.host;
     ssl on;
-    server_name mapping.fairy.host;
+    ssl_certificate /etc/ssl/fairy.host/fairy.host_bundle.crt;
+    ssl_certificate_key /etc/ssl/fairy.host/fairy.host.key;
     ssl_certificate /etc/pki/tls/certs/mapping.fairy.host_bundle.crt;
     ssl_certificate_key /etc/pki/tls/private/mapping.fairy.host.key;
     ssl_session_timeout 5m;
@@ -17,9 +24,20 @@ server {
     ssl_prefer_server_ciphers on;
 
     location / {
-        root /data/deployments/nginx/default;
+        root /data/deployments/nginx/default/;
         index index.html;
         try_files  $uri $uri/ /index.html;
+    }
+
+    location /share {
+        alias /data/share/;
+        # autoindex on;
+        if ($request_filename ~* ^.*?\.(pdf|docx|xlsx|pptx|jpg|jpeg|png|gif|svg)$) {
+            add_header Content-Disposition: 'p_w_upload;';
+        }
+        sendfile on;
+        autoindex_localtime on;
+        charset utf-8;
     }
 
     location /douban/api {
@@ -32,15 +50,7 @@ server {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Port $server_port;
     }
-
-    location /share {
-        alias /data/share;
-        # autoindex on;
-        if ($request_filename ~* ^.*?\.(pdf|docx|xlsx|pptx|jpg|jpeg|png|gif|svg)$) {
-            add_header Content-Disposition: 'p_w_upload;';
-        }
-        sendfile on;
-        autoindex_localtime on;
-        charset utf-8;
+    location /douban/show {
+        return 302 https://mapping.fairy.host:64205/;
     }
 }
