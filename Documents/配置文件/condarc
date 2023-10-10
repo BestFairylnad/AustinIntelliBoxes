@@ -1,0 +1,18 @@
+auto_update_conda: false
+channels:
+  - defaults
+  - conda-forge
+show_channel_urls: true
+#envs_dirs:
+#  - E:\Developments\VirtualEnvironments\Conda\envs
+#  - D:\App\Anaconda\envs
+pkgs_dirs:
+  - E:\Data\Cache\Anaconda
+#proxy_servers:
+#  http: http://127.0.0.1:65353
+#  https: http://127.0.0.1:65353
+restore_free_channel: true
+# channel_priority: strict
+ssl_verify: false
+report_errors: true
+
