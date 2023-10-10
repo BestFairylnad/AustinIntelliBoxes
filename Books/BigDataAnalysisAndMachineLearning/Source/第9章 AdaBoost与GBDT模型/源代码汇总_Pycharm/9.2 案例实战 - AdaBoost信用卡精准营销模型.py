@@ -56,8 +56,8 @@ importances_df.sort_values('特征重要性', ascending=False)
 
 # 9.2.4 模型参数（选学）
 from sklearn.ensemble import AdaBoostClassifier
-AdaBoostClassifier?
+# AdaBoostClassifier
 
 from sklearn.ensemble import AdaBoostRegressor
-AdaBoostRegressor?
+# AdaBoostRegressor?
 
