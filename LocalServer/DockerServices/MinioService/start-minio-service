@@ -1,0 +1,15 @@
+#!/bin/bash
+# File: start-minio-service
+# Editor: PyCharm
+# Author: Austin (From Chengdu.China) https://fairy.host
+# HomePage: https://github.com/AustinFairyland
+# OS: Linux Ubunut 22.04.4 Kernel 6.2.0-36-generic 
+# CreatedTime: 2023/12/22
+
+docker run -p 51000:9000 -p 51001:9090 --name minio-service -d --restart=always \
+-e "MINIO_ACCESS_KEY=Austin" \
+-e "MINIO_SECRET_KEY=Austin.pwd:112#." \
+-v /home/ace/data/docker/volume/minio_service/data:/data \
+-v /home/ace/data/docker/volume/minio_service/config:/root/.minio \
+minio/minio server /data --console-address ":9090"
+
