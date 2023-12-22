@@ -4,7 +4,7 @@
 @ Editor: PyCharm
 @ Author: Austin (From Chengdu.China) https://fairy.host
 @ HomePage: https://github.com/AustinFairyland
-@ OS: Linux Ubunut 22.04.4 Kernel 6.2.0-36-generic 
+@ OS: Linux Ubuntu 22.04.4 Kernel 6.2.0-36-generic
 @ CreatedTime: 2023/11/27
 """
 from __future__ import annotations
