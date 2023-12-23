@@ -1,5 +1,5 @@
 #!/bin/bash
-# File: start -postgresql=service
+# File: start -postgresql-service
 # Editor: PyCharm
 # Author: Austin (From Chengdu.China) https://fairy.host
 # HomePage: https://github.com/AustinFairyland
