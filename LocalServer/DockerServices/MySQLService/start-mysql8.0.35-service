@@ -10,5 +10,4 @@
 docker run -d -p 51002:3306 -e TZ=Asia/Shanghai \
 -v /home/ace/data/docker/volume/mysql8.0.35_service/data:/var/lib/mysql \
 -e MYSQL_ROOT_PASSWORD="MySQL.pwd:112#." \
---restart always --name mysql8.0.35-service mysql:8.0.35 && \
-docker logs -f MySQL8.0.35
+--restart always --name mysql8.0.35-service mysql:8.0.35
