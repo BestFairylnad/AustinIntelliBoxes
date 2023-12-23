@@ -10,6 +10,7 @@ docker run -d \
 -v /home/ace/data/docker/volume/siyuan_service/workspace:/siyuan/workspace \
 -e TZ=Asia/Shanghai \
 -p 51006:6806 \
+--restart always \
 --name siyuan-service \
 b3log/siyuan:latest \
 --workspace=/siyuan/workspace/ \
