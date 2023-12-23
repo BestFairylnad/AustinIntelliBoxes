@@ -12,20 +12,28 @@ import sys
 import warnings
 
 sys.dont_write_bytecode = True
-warnings.filterwarnings('ignore')
+warnings.filterwarnings("ignore")
+from operator import itemgetter
 
 
 class TestClass:
-
-    # def __str__(self):
-    #     return '类'
-
     def __repr__(self):
         return self.s()
-    
+
     def s(self):
-        print('s')
+        print("s")
+
+    def test001(self):
+        return True
+
+    def test002(self):
+        s = (
+            {"id": 1, "name": "状态", "value": "", "status": True},
+            {"id": 2, "name": "修改密码", "value": "", "status": True},
+            {"id": 3, "name": "编辑", "value": "", "status": True},
+            {"id": 4, "name": "删除", "value": "", "status": True},
+        )
 
 
-if __name__ == '__main__':
-    print(TestClass())
+if __name__ == "__main__":
+    print(TestClass().test002())
