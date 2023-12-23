@@ -8,6 +8,7 @@
 
 docker run -d \
 -v /home/ace/data/docker/volume/siyuan_service/workspace:/siyuan/workspace \
+-e TZ=Asia/Shanghai \
 -p 51006:6806 \
 -u $(id -u):$(id -g) \
 b3log/siyuan:latest \
