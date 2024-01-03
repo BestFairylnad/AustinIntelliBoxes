@@ -38,4 +38,4 @@ def make_qr_code(data: str, fileanme: str):
 
 if __name__ == '__main__':
     make_qr_code('https://fairy.host', 'homepage')
-    make_qr_code('https://mapping.fairy.host:4433/douban/show', 'homepage')
+    # make_qr_code('https://mapping.fairy.host:4433/douban/show', 'homepage')
