@@ -7,7 +7,7 @@
 # CreatedTime: 2024/1/13
 
 docker run -d --name halo-blog-service \
--p 51014:8090 \
+-p 51015:8090 \
 -e TZ=Asia/Shanghai \
 -v /home/ace/data/docker/volume/blogs/halo/data:/root/.halo2 \
 halohub/halo:2.11 \
@@ -15,6 +15,6 @@ halohub/halo:2.11 \
 --spring.r2dbc.username=austin \
 --spring.r2dbc.password=Austin.pwd:112#. \
 --spring.sql.init.platform=mysql \
---halo.external-url=http://mapping.fairies.ltd:51014/ \
+--halo.external-url=http://blog.fairies.ltd/ \
 --server.port=8090
 
